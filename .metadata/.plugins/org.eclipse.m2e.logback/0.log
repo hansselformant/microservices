@@ -1,0 +1,202 @@
+2024-01-25 15:39:52,926 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+2024-01-25 15:39:53,528 [ForkJoinPool.commonPool-worker-1] INFO  o.s.s.s.o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'sonarLintSpringAppConfig' of type [org.sonarsource.sonarlint.core.spring.SonarLintSpringAppConfig$$EnhancerBySpringCGLIB$$ab6ee5f] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-01-25 15:39:53,566 [ForkJoinPool.commonPool-worker-1] INFO  o.s.s.s.o.s.c.s.PostProcessorRegistrationDelegate$BeanPostProcessorChecker - Bean 'provideClientEventBus' of type [com.google.common.eventbus.AsyncEventBus] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+2024-01-25 15:39:54,286 [ForkJoinPool.commonPool-worker-1] INFO  jetbrains.exodus.io.FileDataWriter - Interruptible file channel will be used
+java.lang.reflect.InaccessibleObjectException: Unable to make public void sun.nio.ch.FileChannelImpl.setUninterruptible() accessible: module java.base does not "exports sun.nio.ch" to unnamed module @a80147d
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:354)
+	at java.base/java.lang.reflect.AccessibleObject.checkCanSetAccessible(AccessibleObject.java:297)
+	at java.base/java.lang.reflect.Method.checkCanSetAccessible(Method.java:199)
+	at java.base/java.lang.reflect.Method.setAccessible(Method.java:193)
+	at jetbrains.exodus.io.FileDataWriter$Companion$setUninterruptibleMethod$1.invoke(FileDataWriter.kt:188)
+	at jetbrains.exodus.io.FileDataWriter$Companion$setUninterruptibleMethod$1.invoke(FileDataWriter.kt:185)
+	at jetbrains.exodus.util.UnsafeHolder.doPrivileged$lambda-0(UnsafeHolder.kt:30)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:569)
+	at jetbrains.exodus.util.UnsafeHolder.doPrivileged(UnsafeHolder.kt:29)
+	at jetbrains.exodus.io.FileDataWriter.<clinit>(FileDataWriter.kt:185)
+	at jetbrains.exodus.io.FileDataReaderWriterProvider.newFileDataWriter(FileDataReaderWriterProvider.kt:48)
+	at jetbrains.exodus.io.FileDataReaderWriterProvider.newReaderWriter(FileDataReaderWriterProvider.kt:30)
+	at jetbrains.exodus.log.LogConfig.createReaderWriter(LogConfig.java:359)
+	at jetbrains.exodus.log.LogConfig.getReader(LogConfig.java:125)
+	at jetbrains.exodus.log.Log.<init>(Log.kt:52)
+	at jetbrains.exodus.env.Environments.newLogInstance(Environments.kt:117)
+	at jetbrains.exodus.env.Environments.newLogInstance(Environments.kt:81)
+	at jetbrains.exodus.env.Environments.newLogInstance(Environments.kt:77)
+	at jetbrains.exodus.env.Environments$newInstance$4.invoke(Environments.kt:46)
+	at jetbrains.exodus.env.Environments$newInstance$4.invoke(Environments.kt:46)
+	at jetbrains.exodus.env.Environments.prepare(Environments.kt:120)
+	at jetbrains.exodus.env.Environments.newInstance(Environments.kt:46)
+	at org.sonarsource.sonarlint.core.local.only.XodusLocalOnlyIssueStore.buildEntityStore(XodusLocalOnlyIssueStore.java:201)
+	at org.sonarsource.sonarlint.core.local.only.XodusLocalOnlyIssueStore.<init>(XodusLocalOnlyIssueStore.java:94)
+	at org.sonarsource.sonarlint.core.local.only.LocalOnlyIssueStorageService.get(LocalOnlyIssueStorageService.java:49)
+	at org.sonarsource.sonarlint.core.local.only.LocalOnlyIssueStorageService.purgeOldIssues(LocalOnlyIssueStorageService.java:43)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleElement.invoke(InitDestroyAnnotationBeanPostProcessor.java:389)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor$LifecycleMetadata.invokeInitMethods(InitDestroyAnnotationBeanPostProcessor.java:333)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.annotation.InitDestroyAnnotationBeanPostProcessor.postProcessBeforeInitialization(InitDestroyAnnotationBeanPostProcessor.java:157)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.applyBeanPostProcessorsBeforeInitialization(AbstractAutowireCapableBeanFactory.java:440)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1796)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:620)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.config.DependencyDescriptor.resolveCandidate(DependencyDescriptor.java:276)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.DefaultListableBeanFactory.doResolveDependency(DefaultListableBeanFactory.java:1391)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.DefaultListableBeanFactory.resolveDependency(DefaultListableBeanFactory.java:1311)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.ConstructorResolver.resolveAutowiredArgument(ConstructorResolver.java:887)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.ConstructorResolver.createArgumentArray(ConstructorResolver.java:791)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.ConstructorResolver.autowireConstructor(ConstructorResolver.java:229)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.autowireConstructor(AbstractAutowireCapableBeanFactory.java:1372)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1222)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:582)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:542)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:335)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:234)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:333)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:208)
+	at org.sonarsource.sonarlint.shaded.org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:955)
+	at org.sonarsource.sonarlint.shaded.org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:920)
+	at org.sonarsource.sonarlint.shaded.org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:583)
+	at org.sonarsource.sonarlint.core.SonarLintBackendImpl.lambda$initialize$2(SonarLintBackendImpl.java:63)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.run(CompletableFuture.java:1804)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncRun.exec(CompletableFuture.java:1796)
+	at java.base/java.util.concurrent.ForkJoinTask.doExec(ForkJoinTask.java:373)
+	at java.base/java.util.concurrent.ForkJoinPool$WorkQueue.topLevelExec(ForkJoinPool.java:1182)
+	at java.base/java.util.concurrent.ForkJoinPool.scan(ForkJoinPool.java:1655)
+	at java.base/java.util.concurrent.ForkJoinPool.runWorker(ForkJoinPool.java:1622)
+	at java.base/java.util.concurrent.ForkJoinWorkerThread.run(ForkJoinWorkerThread.java:165)
+2024-01-25 15:39:54,517 [ForkJoinPool.commonPool-worker-1] INFO  j.exodus.env.EnvironmentImpl - Exodus environment created: /home/hanssel/.sonarlint/xodus-local-only-issue-store9662680036128900681
+2024-01-25 15:41:01,377 [Worker-28: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.unir:products:0.0.1-SNAPSHOT @ /home/hanssel/Documents/microservices-tutorial/products/pom.xml.
+2024-01-25 15:41:01,946 [Worker-28: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/usuario-service/usuario-service/1.0/usuario-service-1.0.pom
+2024-01-25 15:41:01,948 [Worker-28: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for usuario-service:usuario-service:jar:1.0 is missing, no dependency information available
+2024-01-25 15:41:02,084 [Worker-28: Building] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/usuario-service/usuario-service/1.0/usuario-service-1.0.jar
+2024-01-25 15:41:02,630 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 15:41:02,648 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 15:41:02,654 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/products/src/test/resources
+2024-01-25 15:41:03,432 [Worker-24: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: usuario-service:usuario-service:1.0 @ /home/hanssel/Documents/microservices-tutorial/usuario-service/pom.xml.
+2024-01-25 15:41:04,096 [Worker-16: Download sources and javadoc] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for usuario-service:usuario-service:jar:1.0 is missing, no dependency information available
+2024-01-25 15:41:04,262 [Worker-16: Download sources and javadoc] INFO  o.e.m.c.i.e.AbstractTransferListenerAdapter - Downloaded https://repo.maven.apache.org/maven2/usuario-service/usuario-service/1.0/usuario-service-1.0-sources.jar
+2024-01-25 15:41:04,266 [Worker-16: Download sources and javadoc] ERROR o.e.m.j.internal.DownloadSourcesJob - Could not download sources for usuario-service:usuario-service:1.0
+org.eclipse.core.runtime.CoreException: Could not resolve artifact usuario-service:usuario-service:jar:sources:1.0
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.lambda$6(MavenImpl.java:584)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:394)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:228)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:214)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:553)
+	at org.eclipse.m2e.core.internal.embedder.MavenImpl.resolve(MavenImpl.java:538)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.download(DownloadSourcesJob.java:308)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadAttachments(DownloadSourcesJob.java:282)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadMaven(DownloadSourcesJob.java:252)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.downloadFilesAndPopulateToUpdate(DownloadSourcesJob.java:220)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.lambda$0(DownloadSourcesJob.java:149)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.executeBare(MavenExecutionContext.java:394)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:275)
+	at org.eclipse.m2e.core.internal.embedder.MavenExecutionContext.execute(MavenExecutionContext.java:214)
+	at org.eclipse.m2e.core.embedder.IMaven.execute(IMaven.java:294)
+	at org.eclipse.m2e.jdt.internal.DownloadSourcesJob.run(DownloadSourcesJob.java:149)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+2024-01-25 15:41:04,375 [Worker-24: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - The POM for usuario-service:usuario-service:jar:1.0 is missing, no dependency information available
+2024-01-25 15:41:04,426 [Worker-24: Building] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.unir:products:0.0.1-SNAPSHOT @ /home/hanssel/Documents/microservices-tutorial/products/pom.xml.
+2024-01-25 15:41:04,445 [Worker-24: Building] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/usuario-service: usuario-service:usuario-service:1.0 with classifier  to /usuario-service/target/classes
+2024-01-25 15:41:04,663 [Worker-24: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 15:41:04,680 [Worker-24: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 15:41:04,686 [Worker-24: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 15:41:05,614 [Worker-5: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.eclipse.m2e.jdt.JarLifecycleMapping lifecycle mapping for MavenProject: com.unir:products:0.0.1-SNAPSHOT @ /home/hanssel/Documents/microservices-tutorial/products/pom.xml.
+2024-01-25 15:41:05,843 [Worker-5: Updating Maven Dependencies] INFO  o.e.m.c.i.p.WorkspaceClassifierResolverManager - Resolving P/usuario-service: usuario-service:usuario-service:1.0 with classifier  to /usuario-service/target/classes
+2024-01-25 15:47:11,449 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 15:47:11,451 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 15:47:11,455 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 15:52:21,699 [Worker-35: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 15:52:21,704 [Worker-35: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 15:52:21,707 [Worker-35: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 15:53:54,820 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 15:53:54,824 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 15:53:54,827 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 15:58:49,186 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 15:58:49,195 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 15:58:49,198 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 15:59:52,718 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 15:59:52,730 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 15:59:52,733 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:00:09,118 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:00:09,124 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:00:09,127 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:02:08,742 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:02:08,750 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:02:08,754 [Worker-4: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:05:15,506 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:05:15,510 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:05:15,513 [Worker-28: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:07:19,750 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:07:19,757 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:07:19,760 [Worker-33: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:11:08,401 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:11:08,409 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:11:08,411 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:16:49,898 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:16:49,909 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:16:49,918 [Worker-36: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:21:40,608 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:21:40,616 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:21:40,618 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:23:54,081 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:23:54,088 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:23:54,091 [Worker-34: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:30:42,406 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:30:42,414 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:30:42,416 [Worker-40: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:32:39,426 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:32:39,434 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:32:39,436 [Worker-41: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:34:58,915 [Worker-42: Launching usuario-service - UsuarioServiceApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:34:58,924 [Worker-42: Launching usuario-service - UsuarioServiceApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:34:58,927 [Worker-42: Launching usuario-service - UsuarioServiceApplication] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:41:54,278 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:41:54,285 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:41:54,287 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:42:20,372 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:42:20,380 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:42:20,382 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:42:42,637 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:42:42,644 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:42:42,647 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:42:49,078 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:42:49,084 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:42:49,086 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:43:38,271 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:43:38,276 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:43:38,279 [Worker-48: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:52:51,069 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:52:51,077 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:52:51,080 [Worker-51: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:54:53,423 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:54:53,432 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:54:53,434 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 16:58:50,794 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 16:58:50,802 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 16:58:50,804 [Worker-46: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 17:01:38,204 [Worker-54: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 17:01:38,215 [Worker-54: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 17:01:38,217 [Worker-54: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 17:01:51,892 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 17:01:51,898 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 17:01:51,900 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 17:02:24,215 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 17:02:24,225 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 17:02:24,228 [Worker-49: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 17:05:50,477 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 17:05:50,485 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 17:05:50,491 [Worker-56: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 17:10:17,678 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 17:10:17,685 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 17:10:17,687 [Worker-50: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 17:11:55,397 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 17:11:55,403 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 17:11:55,405 [Worker-55: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources
+2024-01-25 17:16:18,502 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 1 resource from src/main/resources to target/classes
+2024-01-25 17:16:18,512 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - Copying 0 resource from src/main/resources to target/classes
+2024-01-25 17:16:18,515 [Worker-44: Building] INFO  o.a.m.s.f.DefaultMavenResourcesFiltering - skip non existing resourceDirectory /home/hanssel/Documents/microservices-tutorial/usuario-service/src/test/resources

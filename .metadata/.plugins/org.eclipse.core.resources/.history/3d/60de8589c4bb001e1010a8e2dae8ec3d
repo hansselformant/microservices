@@ -1,0 +1,13 @@
+package com.usuario.service.entidades;
+
+import jakarta.persistence.Entity;
+
+@Entity
+
+public class Usuario {
+	
+	private int id;
+	private String nombre;
+	private String email;
+
+}
