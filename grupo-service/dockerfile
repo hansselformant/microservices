@@ -1,0 +1,8 @@
+FROM openjdk:17-jdk-alpine
+
+COPY target/grupo-service-1.0.jar grupo-service.jar
+
+# Expone el puerto 8080
+EXPOSE 8081
+
+ENTRYPOINT ["java", "-jar", "java-app.jar"]
